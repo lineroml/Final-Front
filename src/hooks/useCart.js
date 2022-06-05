@@ -1,9 +1,26 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
 
 export const Cart = createContext();
 
 // Initial state
-const initialItems = [];
+const { username } = JSON.parse(sessionStorage.getItem('token')) || null;
+let initialItems = [];
+if (username) {
+  const cart = sessionStorage.getItem('cart');
+  if (cart) {
+    const { owner } = JSON.parse(cart);
+    if (owner === username) {
+      initialItems = JSON.parse(cart).items;
+    } else {
+      localStorage.removeItem('cart');
+    }
+  }
+}
+
+// persister
+function persistData(data) {
+  sessionStorage.setItem('cart', JSON.stringify({ items: data, owner: username }));
+}
 
 // Actions
 export const ADD_ITEM = 'ADD_ITEM';
@@ -38,6 +55,7 @@ export function cartReducer(state, action) {
   switch (action.type) {
     case ADD_ITEM:
       const newItem = { ...action.item, count: 1 };
+      persistData([...state, newItem]);
       return [...state, newItem];
 
     case REMOVE_ONEOF_ITEM:
@@ -47,6 +65,7 @@ export function cartReducer(state, action) {
       if (copy[index].count === 0) {
         copy.splice(index, 1);
       }
+      persistData(copy);
       return copy;
 
     case REMOVE_ALLOF_ITEM:
@@ -56,11 +75,15 @@ export function cartReducer(state, action) {
       const copy2 = [...state];
       const index2 = copy2.findIndex((item) => item.id === action.id);
       copy2[index2].count = action.amount;
+      persistData(copy2);
       return copy2;
 
     case CLEAR_ALL:
+      persistData([]);
       return [];
+
     default:
+      persistData(state);
       return state;
   }
 }

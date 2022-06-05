@@ -12,10 +12,6 @@ export const Main = () => {
     setElemsPerPage(event.target.value);
   }
 
-  useEffect(() => {
-    console.log('useEffect main', elemsPerPage);
-  }, [elemsPerPage]);
-
   return (
     <Layout>
       <div className='mt-10 flex flex-wrap justify-center items-center'>

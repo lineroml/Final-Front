@@ -59,8 +59,6 @@ function Paginator({ items, elementsPerPage }) {
     }
   };
 
-  console.log('paginator', paginatedItems);
-
   return (
     <>
       <div className='flex justify-center flex-wrap w-full'>

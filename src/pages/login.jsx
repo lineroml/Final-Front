@@ -233,10 +233,7 @@ const Login = () => {
                     Log In
                   </button>
                   <Link to='/'>
-                    <button
-                      className='ml-4  mt-4 font-semibold text-sm border-b-2 border-main-orange'
-                      onClick={() => console.log('xd')}
-                    >
+                    <button className='ml-4  mt-4 font-semibold text-sm border-b-2 border-main-orange'>
                       Return Home
                     </button>
                   </Link>

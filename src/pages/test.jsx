@@ -5,8 +5,13 @@ import { useCart } from '../hooks/useCart';
 
 const Test = () => {
   const { items } = useCart();
-  console.log(items);
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      {items.map((item) => {
+        return <div>{item.name}</div>;
+      })}
+    </Layout>
+  );
 };
 
 export default Test;

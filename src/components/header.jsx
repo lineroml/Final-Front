@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import useLoginToken from '../hooks/useLoginToken';
+import { useCart } from '../hooks/useCart';
 
 const Header = () => {
   const { token } = useLoginToken();
+  const { items } = useCart();
 
   return (
     <div className='w-full z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 flex-wrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
@@ -33,12 +36,14 @@ const Header = () => {
           </div>
         ) : (
           <div className='flex px-4 sm:mb-0 mb-2 font-bold flex-wrap sm:w-max w-screen h-full items-center justify-between'>
-            <a href='/'>
+            <Link to='/test'>
               <button className='mr-8 py-2 bg-main-orange min-w-max font-bold text-sm px-4 rounded-full'>
-                <span className='sm:flex hidden'>Crear receta</span>
-                <span className='sm:hidden flex'>+</span>
+                <span className='sm:flex hidden'>Ver Carrito ({items.length})</span>
+                <span className='sm:hidden flex'>
+                  <i className='fa-solid fa-shopping-cart'></i>
+                </span>
               </button>
-            </a>
+            </Link>
 
             <button
               type='submit'
