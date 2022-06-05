@@ -65,7 +65,7 @@ const Login = () => {
         <div className='md:w-0 md:h-full h-0 w-full md:border-r-main-blue md:border-r-8 border-t-main-blue border-t-8'></div>
         <div className='md:w-1/2 w-screen -mt-2 md:mt-0 h-screen flex flex-col justify-center items-center z-30 bg-white md:bg-opacity-0 bg-opacity-60'>
           <Fade top>
-            <img src='/logo192.png' alt='Logo' className='object-contain aspect-auto h-40' />
+            <img src='/logo_2.png' alt='Logo' className='object-contain aspect-auto h-52' />
           </Fade>
           <Fade bottom opposite when={shown === 0} collapse>
             <div

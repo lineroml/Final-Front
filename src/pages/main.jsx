@@ -17,7 +17,7 @@ export const Main = () => {
       <div className='mt-10 flex flex-wrap justify-center items-center'>
         <h1 className='text-2xl'>Revisa nuestros productos!</h1>
       </div>
-      <div className='bg-blue-200 self-end mr-12'>
+      <div className=' self-end mr-12'>
         elements per page
         <select name='elementsPerPage' id='elementsPerPage' onChange={handleElementsPerPage}>
           <option value={5}>5</option>
