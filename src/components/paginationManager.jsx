@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ItemCard from './itemCard';
 
-function Paginator({ items }) {
+function Paginator({ items, elementsPerPage }) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [size, setSize] = useState(elementsPerPage);
 
-  function chunkify(arr, size = 2) {
+  function chunkify(arr) {
     var index = 0;
     var arrayLength = arr.length;
     var tempArray = [];
@@ -17,17 +18,29 @@ function Paginator({ items }) {
 
     return tempArray;
   }
-  const [paginatedItems] = useState(() => chunkify(items));
-
+  const [paginatedItems, setPaginatedItems] = useState(() => chunkify(items));
   const [products, setProducts] = useState(paginatedItems[currentPage - 1]);
-  console.log(paginatedItems);
+
+  useEffect(() => {
+    setPaginatedItems(chunkify(items));
+    setProducts(paginatedItems[1]);
+    setCurrentPage(new Number(1));
+  }, [size]);
 
   useEffect(() => {
     setProducts(paginatedItems[currentPage - 1]);
   }, [currentPage]);
 
+  useEffect(() => {
+    setSize(elementsPerPage);
+  }, [elementsPerPage]);
+
   const getColour = (page) => {
-    if (page === currentPage) {
+    let page_copy = currentPage;
+    if (typeof page_copy === 'object') {
+      page_copy = parseInt(page_copy);
+    }
+    if (page == currentPage) {
       return 'text-gray-500 bg-gray-200 border border-gray-300 hover:bg-gray-100 hover:text-gray-700';
     } else {
       return 'text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700';
@@ -46,9 +59,11 @@ function Paginator({ items }) {
     }
   };
 
+  console.log('paginator', paginatedItems);
+
   return (
     <>
-      <div className='flex justify-center flex-wrap'>
+      <div className='flex justify-center flex-wrap w-full'>
         {products.map((item, index) => {
           return <ItemCard product={item} />;
         })}
@@ -56,7 +71,7 @@ function Paginator({ items }) {
       <div className='flex justify-center mt-10'>
         <nav aria-label='Pagination Handler'>
           <ul className='inline-flex -space-x-px'>
-            <li>
+            <li key={'before'}>
               <button
                 onClick={previousPage}
                 className='py-2 px-3 ml-0 leading-tight text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700'
@@ -76,7 +91,7 @@ function Paginator({ items }) {
                 </li>
               );
             })}
-            <li>
+            <li key={'after'}>
               <button
                 onClick={nextPage}
                 className='py-2 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 '
