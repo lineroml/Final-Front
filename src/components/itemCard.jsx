@@ -7,7 +7,7 @@ function ItemCard({ product }) {
       <div class='w-1/3 max-w-sm bg-white rounded-lg shadow-xl mt-4 mx-3'>
         <a href='#'>
           <img
-            class='p-8 rounded-t-lg object-cover w-full aspect-square h-auto'
+            class='p-8 rounded-t-lg object-contain w-full aspect-square h-auto'
             src={product.picture_url}
             alt='product image'
           />
