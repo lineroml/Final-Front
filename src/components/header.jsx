@@ -6,28 +6,24 @@ const Header = () => {
   const { token } = useLoginToken();
 
   return (
-    <div className='w-full z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 flex-wrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
+    <div className='w-screen z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 flex-wrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
       <Fade top>
-        <div className='sm:w-max w-screen flex items-center justify-center'>
+        <div className='w-max flex items-center justify-center'>
           <a href='/'>
-            <img src='/logo192.png' alt='Logo' className='object-contain aspect-auto h-16' />
+            <img src='/logo_2.png' alt='Logo' className='object-contain aspect-auto h-20' />
           </a>
         </div>
 
         {!token ? (
-          <div className='sm:w-max sm:mb-0 mb-2 flex-nowrap w-screen flex justify-between px-6'>
-            <a href='/login'>
-              <button className='mr-6 font-semibold text-sm border-b-2 border-main-orange'>
-                Create account
+          <div className='w-max gap-x-6 flex-nowrap flex items-center justify-between px-6'>
+            <a href='/login' className='h-6'>
+              <button className='font-semibold text-sm border-b-2 border-main-orange'>
+                Crear cuenta
               </button>
             </a>
             <a href='/login'>
-              <button className='relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full'>
-                <span className='w-full h-full bg-gradient-to-br from-main-orange to-main-blue group-hover:from-main-blue group-hover:to-main-orange absolute'></span>
-                <span className='relative flex px-6 py-3 transition-all ease-out bg-white rounded-full group-hover:bg-opacity-0 duration-400'>
-                  <span className='relative text-black text-sm '>Log In</span>
-                  <i className='ml-2 fa-solid fa-right-from-bracket'></i>
-                </span>
+              <button className='bg-main-orange px-6 py-2 rounded-lg text-white hover:bg-main-blue-2 hover:text-black transition-all duration-200 font-semibold'>
+                Iniciar sesión
               </button>
             </a>
           </div>
