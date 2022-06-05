@@ -28,6 +28,38 @@ const initialItems = [
       'https://ae01.alicdn.com/kf/H0940cd8c5a704d28a34e268d88afb97bc/Juguete-antiestr-s-de-Animal-ding-ding-juguete-suave-y-pegajoso-de-elevaci-n-lenta-para.jpg_Q90.jpg_.webp',
     rating: 5,
   },
+  {
+    id: 4,
+    name: 'Ding Ding Plushie',
+    price: '1700.00',
+    picture_url:
+      'https://cdn.shopify.com/s/files/1/2669/6848/products/Untitled_design_1_a49faecc-fb76-4980-ab9b-5a8db57b5f33.png?v=1633111622',
+    rating: 3,
+  },
+  {
+    id: 5,
+    name: 'Ding Ding Poster',
+    price: '750.00',
+    picture_url:
+      'https://preview.redd.it/cb6aokqj99v11.jpg?auto=webp&s=0b3ae79b2b2addf5744f71c1cffda25056e60e71',
+    rating: 4,
+  },
+  {
+    id: 6,
+    name: 'Ding Ding Keycap',
+    price: '500.00',
+    picture_url:
+      'https://ae01.alicdn.com/kf/H4d879fe3cb7a46b9a6a3ead161e53bd3X/Personality-Little-Ding-Ding-Pink-DIY-Handmade-MX-Keycap-Cute-and-Smiley-Face-Cross-Axis-For.jpg_Q90.jpg_.webp',
+    rating: 1,
+  },
+  {
+    id: 7,
+    name: 'Giant Ding Ding Plush',
+    price: '2500.00',
+    picture_url:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD5TF6gfzLIrtqmT1a6IWJEcrM7x78bokyIw&usqp=CAU',
+    rating: 5,
+  },
 ];
 
 // Actions

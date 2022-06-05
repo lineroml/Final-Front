@@ -23,7 +23,7 @@ function Paginator({ items, elementsPerPage }) {
 
   useEffect(() => {
     setPaginatedItems(chunkify(items));
-    setProducts(paginatedItems[1]);
+    setProducts(paginatedItems[0]);
     setCurrentPage(new Number(1));
   }, [size]);
 
