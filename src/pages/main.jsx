@@ -1,29 +1,16 @@
 import React from 'react';
-import logo from '../logo.svg';
 import Layout from '../components/layout';
+import Paginator from '../components/paginationManager';
 import { useItemStore } from '../hooks/useItemStore';
 
 export const Main = () => {
   const { items } = useItemStore();
-
   return (
     <Layout>
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='mt-10 flex flex-wrap justify-center items-center'>
+        <h1 className='text-2xl'>Revisa nuestros productos!</h1>
       </div>
+      <Paginator items={items}></Paginator>
     </Layout>
   );
 };

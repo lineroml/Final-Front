@@ -1,10 +1,12 @@
 import React from 'react';
 import Layout from '../components/layout';
+import Paginator from '../components/paginationManager';
 
 const Test = () => {
+  const arr = [];
   return (
     <Layout>
-      <h1>Test</h1>
+      <Paginator items={arr}></Paginator>
     </Layout>
   );
 };
