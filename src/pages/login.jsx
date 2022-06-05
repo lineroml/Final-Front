@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import HeadShake from 'react-reveal/HeadShake';
-import { login as LoginUser, register } from '../scripts/user_manage';
+import { login as LoginUser } from '../scripts/user_manage';
 import useFormData from '../hooks/useFormData';
 import { useUserStore, addUser } from '../hooks/useUserStore';
 import useLoginToken from '../hooks/useLoginToken';
@@ -50,8 +50,9 @@ const Login = () => {
       role: 'user',
     };
     dispatch(addUser(user));
-    if (user) {
-      setToken(LoginUser(users, formDataReg.username, formDataReg.password));
+    const token = LoginUser(users, formDataReg.username, formDataReg.password);
+    if (token) {
+      setToken(token);
       navigate('/');
     } else {
       setShakeVar(true);

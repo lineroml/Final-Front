@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import Paginator from '../components/paginationManager';
 import { useItemStore } from '../hooks/useItemStore';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export const Main = () => {
   const { items } = useItemStore();
@@ -18,7 +18,7 @@ export const Main = () => {
         <h1 className='text-2xl'>Revisa nuestros productos!</h1>
       </div>
       <div className=' self-end mr-12'>
-        elements per page
+        {'Elementos por página:  '}
         <select name='elementsPerPage' id='elementsPerPage' onChange={handleElementsPerPage}>
           <option value={5}>5</option>
           <option value={10}>10</option>

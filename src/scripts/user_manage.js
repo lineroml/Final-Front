@@ -1,4 +1,5 @@
 const login = (users, username, password) => {
+  console.log(users);
   const user = users.find((user) => user.username === username && user.password === password);
   if (user) {
     return {

@@ -5,8 +5,13 @@ import useLoginToken from '../hooks/useLoginToken';
 import { useCart } from '../hooks/useCart';
 
 const Header = () => {
-  const { token } = useLoginToken();
+  const { token, logOut } = useLoginToken();
   const { items } = useCart();
+
+  const handleLogout = () => {
+    logOut();
+    window.location.reload();
+  };
 
   return (
     <div className='w-screen z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 flex-wrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
@@ -42,13 +47,11 @@ const Header = () => {
             </Link>
 
             <button
-              type='submit'
-              className='ml-2 w-40 flex h-8 aspect-square hover:bg-main-orange group bg-white transition-all duration-300 ease-in-out rounded-full'
+              className='ml-2 w-40 flex h-10 aspect-square hover:bg-main-orange group bg-white transition-all duration-300 ease-in-out rounded-full'
+              onClick={handleLogout}
             >
-              <a href='/' className='flex w-full'>
-                <img src='/logo192.png' alt='chef logo' className='w-6 aspect-auto mr-2' />
-                <span className='truncate'>{token.name + ' ' + token.lastName}</span>
-              </a>
+              <img src='/logo_2.png' alt='logo' className='w-6 aspect-auto mr-2' />
+              <span className='truncate justify-center'>Log Out</span>
             </button>
           </div>
         )}

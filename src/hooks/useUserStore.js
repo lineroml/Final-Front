@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 export const UserStore = createContext();
 
 // Initial state
-const initialItems = [
+const initialItems = JSON.parse(localStorage.getItem('users')) || [
   {
     name: 'John',
     lastName: 'Doe',
@@ -21,6 +21,11 @@ const initialItems = [
     mail: 'admin2@admin.com',
   },
 ];
+
+// Persister
+function persistData(data) {
+  localStorage.setItem('users', JSON.stringify(data));
+}
 
 // Actions
 export const ADD_USER = 'ADD_USER';
@@ -44,14 +49,25 @@ export function clearAll() {
 export function userReducer(state, action) {
   switch (action.type) {
     case ADD_USER:
+      // find if username and email are already in use
+      const user = state.find(
+        (user) => user.username === action.text.username || user.mail === action.text.mail
+      );
+      if (user) {
+        return state;
+      }
+      persistData([...state, action.text]);
       return [...state, action.text];
     case REMOVE_USER:
       const copy = [...state];
       copy.splice(action.index, 1);
+      persistData(copy);
       return copy;
     case CLEAR_ALL:
+      persistData([]);
       return [];
     default:
+      persistData(state);
       return state;
   }
 }

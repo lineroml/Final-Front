@@ -3,7 +3,7 @@ import { createContext, useContext, useReducer } from 'react';
 export const Cart = createContext();
 
 // Initial state
-const { username } = JSON.parse(sessionStorage.getItem('token')) || null;
+const username = JSON.parse(sessionStorage.getItem('token'))?.username || null;
 let initialItems = [];
 if (username) {
   const cart = sessionStorage.getItem('cart');
@@ -15,6 +15,8 @@ if (username) {
       localStorage.removeItem('cart');
     }
   }
+} else {
+  sessionStorage.removeItem('cart');
 }
 
 // persister
