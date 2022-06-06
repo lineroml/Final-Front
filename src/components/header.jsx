@@ -45,22 +45,27 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <div className='flex px-4 sm:mb-0 mb-2 font-bold flex-wrap sm:w-max w-screen h-full items-center justify-between'>
-            <Link to='/test'>
-              <button className='mr-8 py-2 bg-main-orange min-w-max font-bold text-sm px-4 rounded-full'>
+          <div className='flex px-4 sm:mb-0 mb-2 font-bold flex-wrap w-max h-full items-center justify-between'>
+            <button className='bg-main-orange mr-4 px-6 py-2 rounded-lg text-white hover:bg-main-blue-2 hover:text-black transition-all duration-200 font-semibold'>
+              <Link to='/test'>
                 <span className='sm:flex hidden'>Ver Carrito ({items.length})</span>
                 <span className='sm:hidden flex'>
                   <i className='fa-solid fa-shopping-cart'></i>
                 </span>
-              </button>
-            </Link>
+              </Link>
+            </button>
 
             <button
-              className='ml-2 w-40 flex h-10 aspect-square hover:bg-main-orange group bg-white transition-all duration-300 ease-in-out rounded-full'
+              className=' px-6 py-2 rounded-lg flex-col flex items-center group hover:text-black transition-colors duration-200 font-semibold'
               onClick={handleLogout}
             >
-              <img src='/logo_2.png' alt='logo' className='w-6 aspect-auto mr-2' />
-              <span className='truncate justify-center'>Log Out</span>
+              <div>
+                <i class='fa-solid text-xl fa-face-sad-tear text-main-orange transition-all duration-300 ease-in-out '></i>
+                <span className='ml-2 truncate justify-center transition-all duration-300 ease-in-out '>
+                  Log Out
+                </span>
+              </div>
+              <div className='w-[0px] group-hover:w-full group-hover:border-t-2 border-black transition-all duration-300 ease-out rounded-full'></div>
             </button>
           </div>
         )}
