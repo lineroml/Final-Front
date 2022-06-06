@@ -71,7 +71,9 @@ export function cartReducer(state, action) {
       return copy;
 
     case REMOVE_ALLOF_ITEM:
-      return state.filter((item) => item.id !== action.id);
+      const newState = state.filter((item) => item.id !== action.id);
+      persistData(newState);
+      return newState;
 
     case SET_AMOUNT_OF_ITEM:
       const copy2 = [...state];
