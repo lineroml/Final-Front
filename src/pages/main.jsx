@@ -37,7 +37,7 @@ export const Main = () => {
       </div>
       <a href='#productos'>
         <i
-          class='fa-solid fa-angles-down text-3xl text-main-orange sm:mt-44 mt-20'
+          class='fa-solid fa-angles-down text-3xl text-main-orange hover:text-main-blue-2 transition-all duration-150 sm:mt-44 mt-20'
           id='productos'
         />
       </a>
