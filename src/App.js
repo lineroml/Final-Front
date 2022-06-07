@@ -2,6 +2,9 @@ import './App.css';
 import Main from './pages/main';
 import Test from './pages/test';
 import Login from './pages/login';
+import Cart from './pages/cart';
+import Checkout from './pages/checkout';
+import Success from './pages/success';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ItemProvider } from './hooks/useItemStore';
 import { UserProvider } from './hooks/useUserStore';
@@ -16,7 +19,10 @@ function App() {
             <Router>
               <Routes>
                 <Route path='/' exact element={<Main />} />
-                <Route path='login' element={<Login />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/success' element={<Success />} />
                 <Route path='/test' element={<Test />} />
               </Routes>
             </Router>

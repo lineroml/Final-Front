@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
 import useLoginToken from '../hooks/useLoginToken';
 import { useCart } from '../hooks/useCart';
@@ -7,10 +7,11 @@ import { useCart } from '../hooks/useCart';
 const Header = () => {
   const { token, logOut } = useLoginToken();
   const { items } = useCart();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOut();
-    window.location.reload();
+    navigate('/');
   };
 
   return (
@@ -47,7 +48,7 @@ const Header = () => {
         ) : (
           <div className='flex px-4 sm:mb-0 mb-2 font-bold flex-wrap w-max h-full items-center justify-between'>
             <button className='bg-main-orange mr-4 px-6 py-2 rounded-lg text-white hover:bg-main-blue-2 hover:text-black transition-all duration-200 font-semibold'>
-              <Link to='/test'>
+              <Link to='/cart'>
                 <span className='sm:flex hidden'>Ver Carrito ({items.length})</span>
                 <span className='sm:hidden flex'>
                   <i className='fa-solid fa-shopping-cart'></i>
