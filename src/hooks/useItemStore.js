@@ -80,6 +80,14 @@ export function clearAll() {
   return { type: CLEAR_ALL };
 }
 
+function updateItemsLocal(items) {
+  if (items){
+    localStorage.removeItem('items')
+    localStorage.setItem('items', JSON.stringify(items))
+  }
+
+}
+
 // Reducer
 export function itemReducer(state, action) {
   switch (action.type) {
@@ -94,6 +102,18 @@ export function itemReducer(state, action) {
       return copy.filter((item) => item.id !== action.id);
     case CLEAR_ALL:
       return [];
+    case "add":
+      updateItemsLocal([...state, action.payload])
+      return [...state, action.payload]
+    case "edit":
+      const newItems = state.map(item => {
+        if (item.id === action.payload.id){
+          return action.payload.form
+        }
+        return item
+      })
+      updateItemsLocal(newItems)
+      return newItems
     default:
       return state;
   }
