@@ -73,8 +73,8 @@ const Login = () => {
               className={`transition-all duration-200 w-full flex-col justify-center items-center flex`}
             >
               <span className='max-w-md text-center text-2xl mt-4'>
-                Welcome to the <span className='font-extrabold'>best</span> cooking community in the
-                world.
+                Bienvenido a la <span className='font-extrabold'>mejor</span> comunidad de compras
+                en el mundo
               </span>
               <button
                 className='relative mt-6 w-[300px] p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-full  min-w-max'

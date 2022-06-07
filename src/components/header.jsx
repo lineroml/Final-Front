@@ -12,15 +12,17 @@ const Header = () => {
   const handleLogout = () => {
     logOut();
     // if user is in home, refresh page, else navigate home
-    if (navigate.location.pathname === '/') {
+
+    if (window.location.pathname === '/') {
       window.location.reload();
     } else {
       navigate('/');
+      window.location.reload();
     }
   };
 
   return (
-    <div className='w-full z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 flex-wrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
+    <div className='w-full z-50 md:h-24 h-full bg-white sticky top-0 md:mt-0 mt-2 sm:flex-wrap flex-nowrap shadow-xl flex justify-between md:px-10 px-2 items-center'>
       <Fade top>
         <div className='w-max flex items-center justify-center'>
           <a href='/'>
@@ -51,7 +53,7 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <div className='flex px-4 sm:mb-0 mb-2 font-bold flex-wrap w-max h-full items-center justify-between'>
+          <div className='flex px-4 sm:mb-0 mb-2 font-bold sm:flex-wrap w-max h-full items-center justify-end'>
             {token && token.role === 'admin' && (
               <button className='bg-main-orange mr-4 px-6 py-2 rounded-lg text-white hover:bg-main-blue-2 hover:text-black transition-all duration-200 font-semibold'>
                 <Link to='/master'>
@@ -73,7 +75,9 @@ const Header = () => {
 
             <button
               className=' px-6 py-2 rounded-lg flex-col flex items-center group hover:text-black transition-colors duration-200 font-semibold'
-              onClick={handleLogout}
+              onClick={() => {
+                handleLogout();
+              }}
             >
               <div>
                 <i class='fa-solid text-xl fa-face-sad-tear text-main-orange transition-all duration-300 ease-in-out '></i>

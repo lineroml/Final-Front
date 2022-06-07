@@ -22,19 +22,19 @@ function Cart() {
   };
   return (
     <Layout>
-      <div className='container mx-auto mt-10'>
-        <div className='flex shadow-xl my-10'>
-          <div className='w-3/4 bg-white px-10 py-10'>
+      <div className='container mx-auto sm:mt-10'>
+        <div className='flex flex-wrap shadow-xl my-10'>
+          <div className='sm:w-3/4 w-full bg-white sm:px-10 px-5 py-10'>
             <div className='flex justify-between border-b pb-8'>
-              <h1 className='font-semibold text-2xl'>Carrito de compras</h1>
-              <h2 className='font-semibold text-2xl'>{items.length} Items</h2>
+              <h1 className='font-semibold text-2xl text-center'>Carrito de compras</h1>
+              <h2 className='font-semibold text-2xl text-center'>{items.length} Items</h2>
             </div>
             <div className='flex mt-10 mb-5'>
               <h3 className='font-semibold text-gray-600 text-xs uppercase w-2/5'>Producto</h3>
-              <h3 className='font-semibold text-center text-gray-600 text-xs uppercase w-1/5'>
+              <h3 className='font-semibold text-center text-gray-600 text-xs uppercase sm:w-1/5 w-2/5'>
                 Cantidad
               </h3>
-              <h3 className='font-semibold text-center text-gray-600 text-xs uppercase w-1/5'>
+              <h3 className='sm:flex hidden font-semibold text-center text-gray-600 text-xs uppercase w-1/5'>
                 Precio
               </h3>
               <h3 className='font-semibold text-center text-gray-600 text-xs uppercase w-1/5'>
@@ -44,8 +44,10 @@ function Cart() {
             {items.length > 0 ? (
               items.map((item) => <CartListItem item={item} />)
             ) : (
-              <div className='flex justify-center items-center mt-10'>
-                <h1 className='text-gray-600 text-5xl'>No hay productos en el carrito :c</h1>
+              <div className='flex justify-center items-center mt-10 text-center'>
+                <h1 className='text-gray-600 text-5xl text-center'>
+                  No hay productos en el carrito :c
+                </h1>
               </div>
             )}
             <a href='#' className='flex font-semibold text-indigo-600 text-sm mt-10'>
@@ -56,7 +58,7 @@ function Cart() {
             </a>
           </div>
 
-          <div id='summary' className='w-1/4 px-8 py-10'>
+          <div id='summary' className='sm:w-1/4 w-full px-8 py-10'>
             <h1 className='font-semibold text-2xl border-b pb-8'>Resumen de la orden</h1>
             <div className='flex justify-between mt-10 mb-5'>
               <span className='font-semibold text-sm uppercase'>Items {items.length}</span>
