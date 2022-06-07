@@ -15,6 +15,7 @@ function Checkout() {
   };
 
   const errorOnName = () => {
+    console.log(showErrors, formData.name);
     if (showErrors && !formData.name) {
       return 'border-red-500';
     } else {
@@ -91,7 +92,14 @@ function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log(formData);
+
+    if (Object.keys(formData).length === 0) {
+      setShowErrors(true);
+      return;
+    }
+
     if (
       !errorOnName() &&
       !errorOnEmail() &&
@@ -110,10 +118,6 @@ function Checkout() {
       setShowErrors(true);
     }
   };
-
-  useEffect(() => {
-    setShowErrors(false);
-  }, [formData]);
 
   return (
     <Layout>
@@ -196,7 +200,7 @@ function Checkout() {
                   <label
                     className={`xl:w-1/3 xl:inline-flex py-3 items-center flex border ${errorOnZip()}`}
                   >
-                    <span className='text-right px-2 xl:px-0 xl:text-none'>Cód Postal</span>
+                    <span className='text-right ml-2 px-2 xl:px-0 xl:text-none'>Cód Postal</span>
                     <input
                       name='codigo_postal'
                       className='focus:outline-none px-3'
@@ -227,19 +231,22 @@ function Checkout() {
                     className={`xl:w-1/4 xl:inline-flex py-3 items-center flex border ${errorOnExp()}`}
                   >
                     <span className='text-right px-2'>Vencimiento</span>
-                    <input name='thru' className='focus:outline-none px-3' placeholder='MM/AA' />
+                    <input name='thru' className='focus:outline-none w-1/3' placeholder='MM/AA' />
                   </label>
                   <label
                     className={`xl:w-1/4 xl:inline-flex py-3 items-center flex border ${errorOnCvv()}`}
                   >
-                    <span className='text-right px-2 xl:px-0 xl:text-none'>CVV</span>
-                    <input name='cvv' className='focus:outline-none px-3' placeholder='123' />
+                    <span className='text-right xl:px-0 xl:text-none ml-2'>CVV</span>
+                    <input name='cvv' className='focus:outline-none ml-2 w-2/3' placeholder='123' />
                   </label>
                 </fieldset>
               </section>
             </div>
             <button
-              onClick={handleSubmit}
+              onClick={() => {
+                setShowErrors(true);
+                handleSubmit();
+              }}
               className='submit-button px-4 py-3 rounded-full bg-main-orange text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors'
             >
               Pay ${parseFloat(parseFloat(getTotal()) + 10).toFixed(2)}

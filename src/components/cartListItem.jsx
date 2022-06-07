@@ -21,7 +21,7 @@ function CartListItem({ item }) {
         <div className='flex flex-col justify-between ml-4 flex-grow'>
           <span className='font-bold text-sm'>{item.name}</span>
           <button
-            className='font-semibold bg-red-200 hover:text-red-500 text-gray-500 text-xs'
+            className='font-semibold bg-red-200 hover:text-red-500 text-gray-500 text-xs rounded-md py-2'
             onClick={() => dispatch(removeAllOfItem(item.id))}
           >
             Quitar elemento

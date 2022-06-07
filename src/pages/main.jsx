@@ -43,7 +43,7 @@ export const Main = () => {
       </a>
       <h1 className='text-2xl text-center mb-20'>Revisa nuestros productos!</h1>
       <div className=' self-end sm:mr-12 mr-2'>
-        elements per page
+        {'Elementos por página:  '}
         <select name='elementsPerPage' id='elementsPerPage' onChange={handleElementsPerPage}>
           <option value={5}>5</option>
           <option value={10}>10</option>
