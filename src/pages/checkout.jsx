@@ -153,7 +153,7 @@ function Checkout() {
                 <h2 className='uppercase tracking-wide text-lg font-semibold text-gray-700 my-2'>
                   Información de Facturación y Envío
                 </h2>
-                <div className='mb-3 bg-red-200 shadow-lg rounded text-gray-600'>
+                <div className='mb-3 bg-white shadow-lg rounded text-gray-600'>
                   <label className={`flex w-full border h-12 py-3 items-center ${errorOnName()}`}>
                     <span className='text-right px-2'>Nombre</span>
                     <input
