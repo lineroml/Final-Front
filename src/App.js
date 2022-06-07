@@ -5,6 +5,7 @@ import Login from './pages/login';
 import Cart from './pages/cart';
 import Checkout from './pages/checkout';
 import Success from './pages/success';
+import Master from './pages/master';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ItemProvider } from './hooks/useItemStore';
 import { UserProvider } from './hooks/useUserStore';
@@ -24,6 +25,7 @@ function App() {
                 <Route path='/checkout' element={<Checkout />} />
                 <Route path='/success' element={<Success />} />
                 <Route path='/test' element={<Test />} />
+                <Route path='/master' element={<Master />} />
               </Routes>
             </Router>
           </UserProvider>
