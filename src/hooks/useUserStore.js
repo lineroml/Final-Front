@@ -20,6 +20,14 @@ const initialItems = JSON.parse(localStorage.getItem('users')) || [
     role: 'admin',
     mail: 'admin2@admin.com',
   },
+  {
+    name: 'John',
+    lastName: 'Doe',
+    username: 'admin3',
+    password: 'admin3',
+    role: 'admin',
+    mail: 'admin3@admin.com',
+  },
 ];
 
 // Persister
